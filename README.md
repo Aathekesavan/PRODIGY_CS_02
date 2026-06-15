@@ -24,13 +24,6 @@ PIXELCRYPT is a modern image encryption application developed as part of my Cybe
 ## 📸 Screenshots
 
 ### Main Dashboard
-![Main Dashboard](assets/dashboard.png)
-
-### Encryption Process
-![Encryption Process](assets/encryption.png)
-
-### Analytics & Security Dashboard
-![Analytics & Security Dashboard](assets/analytics.png)
 
 ---
 
