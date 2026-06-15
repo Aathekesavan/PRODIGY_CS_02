@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+
+  --color-cyber-cyan: #00f0ff;
+  --color-cyber-purple: #bd00ff;
+  --color-cyber-green: #00ff66;
+  --color-cyber-red: #ff003c;
+  --color-cyber-yellow: #fff600;
+  --color-cyber-dark: #0a0b10;
+  --color-cyber-card: #12131a;
+  --color-cyber-border: #232533;
+  --color-cyber-border-glow: rgba(0, 240, 255, 0.3);
+
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-matrix: matrix 20s linear infinite;
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes glitch {
+    0% { clip-path: inset(40% 0 61% 0); }
+    20% { clip-path: inset(92% 0 1% 0); }
+    40% { clip-path: inset(25% 0 58% 0); }
+    60% { clip-path: inset(80% 0 5% 0); }
+    80% { clip-path: inset(11% 0 78% 0); }
+    100% { clip-path: inset(40% 0 61% 0); }
+  }
+}
+
+/* Custom global styles & scrollbars */
+@layer base {
+  body {
+    background-color: var(--color-cyber-dark);
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-cyber-dark);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-cyber-border);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-cyber-cyan);
+  }
+}
+
+/* Cyberpunk decorative utilities */
+.neon-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 15px rgba(189, 0, 255, 0.25), inset 0 0 15px rgba(189, 0, 255, 0.1);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+.neon-text-purple {
+  text-shadow: 0 0 8px rgba(189, 0, 255, 0.6);
+}
+
+.neon-text-green {
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+}
+
+.neon-text-red {
+  text-shadow: 0 0 8px rgba(255, 0, 60, 0.6);
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(18, 19, 26, 0.8) 0%, rgba(18, 19, 26, 0.95) 100%),
+    linear-gradient(90deg, rgba(35, 37, 51, 0.4) 1px, transparent 1px),
+    linear-gradient(rgba(35, 37, 51, 0.4) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+}
+
+.cyber-panel {
+  background: rgba(18, 19, 26, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-cyber-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-cyber-cyan), transparent);
+}
+
+.cyber-button {
+  position: relative;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, 92% 0, 100% 8px, 100% 100%, 8% 100%, 0 92%);
+}
+
+.cyber-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.15) 55%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.cyber-button:hover::after {
+  transform: translateX(100%);
+}
+
+.cyber-input {
+  background: rgba(10, 11, 16, 0.8);
+  border: 1px solid var(--color-cyber-border);
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.cyber-input:focus {
+  border-color: var(--color-cyber-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+  outline: none;
+}
+
+@keyframes pulse-cyan {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.7), 0 0 25px rgba(0, 240, 255, 0.3); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 102, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(0, 255, 102, 0.7), 0 0 25px rgba(0, 255, 102, 0.3); }
+}
+
+.pulse-glowing-cyan {
+  animation: pulse-cyan 2s infinite;
+  border-color: rgba(0, 240, 255, 0.6) !important;
+}
+
+.pulse-glowing-green {
+  animation: pulse-green 2s infinite;
+  border-color: rgba(0, 255, 102, 0.6) !important;
+}
