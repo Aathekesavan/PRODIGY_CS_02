@@ -104,7 +104,6 @@ Through this project, I gained experience in:
 *Cyber Security Intern*
 
 * **GitHub**: [github.com/Aathekesavan](https://github.com/Aathekesavan)
-* **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/aathekesavan)
 
 ---
 
